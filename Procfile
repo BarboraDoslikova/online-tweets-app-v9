@@ -1,1 +1,1 @@
-web: gunicorn app:onlinetweetsappv2
+web: gunicorn app:app
