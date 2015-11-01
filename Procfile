@@ -1,1 +1,1 @@
-web: gunicorn onlinetweetsappv2:index
+web: gunicorn onlinetweetsappv2:onlinetweetsappv2
