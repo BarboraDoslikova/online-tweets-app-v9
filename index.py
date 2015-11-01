@@ -8,7 +8,7 @@ The main script to run the Online Tweets App (OTA).
 """
 
 from flask import Flask, render_template, request, redirect
-ota = Flask(__name__)
+onlinetweetsappv2 = Flask(__name__)
 
 import simplejson
 import requests
@@ -19,22 +19,22 @@ from bokeh.plotting import figure
 from bokeh.resources import CDN
 from bokeh.embed import components
 
-ota.vars = {}
+onlinetweetsappv2.vars = {}
 
-ota.regions = {}
-ota.regions['Which region would you like to select?']=('West USA','East USA')
+onlinetweetsappv2.regions = {}
+onlinetweetsappv2.regions['Which region would you like to select?']=('West USA','East USA')
 
-@ota.route('/main', methods=['GET', 'POST'])
+@onlinetweetsappv2.route('/main', methods=['GET', 'POST'])
 def main():
     if request.method == 'GET':
-        a1, a2 = ota.regions.values()[0]
+        a1, a2 = onlinetweetsappv2.regions.values()[0]
         return render_template('form.html', ans1=a1, ans2=a2)
     else:
         # request was a POST
-        ota.vars['region'] = request.form['answer_from_layout']     
+        onlinetweetsappv2.vars['region'] = request.form['answer_from_layout']     
         return redirect('/graph')
 
-@ota.route('/graph', methods=['GET', 'POST'])
+@onlinetweetsappv2.route('/graph', methods=['GET', 'POST'])
 def graph():    
     """AUTHENTICATION
     """
@@ -55,7 +55,7 @@ def graph():
         ''' returns a location based on user's choice
         '''
         bounding_box = ""
-        if ota.vars['region'] == 'West USA':
+        if onlinetweetsappv2.vars['region'] == 'West USA':
             bounding_box = "-125.00,24.94,-95.50,49.59"
         else:
             bounding_box = "-95.50,24.94,-66.93,49.59"
@@ -136,7 +136,7 @@ def graph():
     """MAKE GRAPH
     """
     t = sentences_to_words(all_tweets) 
-    tit = ota.vars['region']
+    tit = onlinetweetsappv2.vars['region']
     plot = figure(title=tit, plot_width=300,plot_height=300)
     plot.annulus(x=t, y=t, color="#7FC97F", inner_radius=0.2, outer_radius=0.5)
     script, div = components(plot, CDN)
@@ -144,9 +144,9 @@ def graph():
     """RENDER TEMPLATE
     """
     g = all_tweets
-    ch = ota.vars['region']
+    ch = onlinetweetsappv2.vars['region']
     
     return render_template('graph.html', graph=g, choice=ch, script=script, div=div)
 
 if __name__ == '__main__':
-    ota.run(port=33507)
+    onlinetweetsappv2.run(port=33507)
