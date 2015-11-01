@@ -15,6 +15,7 @@ import requests
 from requests_oauthlib import OAuth1
 from itertools import islice
 
+import bokeh
 from bokeh.plotting import figure
 from bokeh.resources import CDN
 from bokeh.embed import components
