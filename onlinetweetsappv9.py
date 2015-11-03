@@ -23,7 +23,7 @@ onlinetweetsappv9.vars = {}
 onlinetweetsappv9.regions = {}
 onlinetweetsappv9.regions['Which region would you like to select?']=('West USA','East USA')
 
-@onlinetweetsappv2.route('/', methods=['GET', 'POST'])
+@onlinetweetsappv9.route('/', methods=['GET', 'POST'])
 def go():
     return redirect('/main')
         
