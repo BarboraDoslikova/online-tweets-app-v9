@@ -13,7 +13,6 @@ onlinetweetsappv9 = Flask(__name__)
 import simplejson
 import requests
 from requests_oauthlib import OAuth1
-from itertools import islice
 
 from bokeh.plotting import figure
 from bokeh.resources import CDN
@@ -81,7 +80,7 @@ def graph():
     def generate_1_tweet():
         ''' uses tweet generator to return 1 tweet
         '''
-        for tweet in islice(tweet_generator(), 1): # returns 1st tweet
+        for tweet in tweet_generator(): # returns 1st tweet
             return all_tweets.append(tweet)
     number_of_tweets = 5   
     def generate_x_tweets():
