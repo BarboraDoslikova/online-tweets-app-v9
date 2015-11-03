@@ -23,6 +23,16 @@ onlinetweetsappv9.vars = {}
 onlinetweetsappv9.regions = {}
 onlinetweetsappv9.regions['Which region would you like to select?']=('West USA','East USA')
 
+@onlinetweetsappv9.route('/', methods=['GET', 'POST'])
+def main():
+    if request.method == 'GET':
+        a1, a2 = onlinetweetsappv9.regions.values()[0]
+        return render_template('form.html', ans1=a1, ans2=a2)
+    else:
+        # request was a POST
+        onlinetweetsappv9.vars['region'] = request.form['answer_from_layout']     
+        return redirect('/graph')
+        
 @onlinetweetsappv9.route('/main', methods=['GET', 'POST'])
 def main():
     if request.method == 'GET':
