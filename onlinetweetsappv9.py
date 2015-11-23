@@ -7,7 +7,7 @@ The main script to run the Online Tweets App.
 """
 
 from flask import Flask, render_template, request, redirect
-onlinetweetsappv2 = Flask(__name__)
+onlinetweetsappv9 = Flask(__name__)
 
 import pandas as pd
 from bokeh.embed import components
@@ -16,28 +16,28 @@ from bokeh.resources import CDN
 
 import app_functions  # My own
 
-onlinetweetsappv2.vars = {}
-onlinetweetsappv2.vars["regions_offered"]=["WestUSA","EastUSA", "Canada"]
+onlinetweetsappv9.vars = {}
+onlinetweetsappv9.vars["regions_offered"]=["WestUSA","EastUSA", "Canada"]
 
-@onlinetweetsappv2.route("/", methods=["GET", "POST"])
+@onlinetweetsappv9.route("/", methods=["GET", "POST"])
 def redirecting():
     return redirect("/main")
    
-@onlinetweetsappv2.route("/main", methods=["GET", "POST"])
+@onlinetweetsappv9.route("/main", methods=["GET", "POST"])
 def main():
     if request.method == "GET":
-        a1, a2, a3 = onlinetweetsappv2.vars["regions_offered"]
+        a1, a2, a3 = onlinetweetsappv9.vars["regions_offered"]
         return render_template("form.html", ans1=a1, ans2=a2, ans3=a3)
     else:
         # request was a POST
-        onlinetweetsappv2.vars["regions_selected"] = request.form.getlist("region")
+        onlinetweetsappv9.vars["regions_selected"] = request.form.getlist("region")
         return redirect("/graph")
 
-@onlinetweetsappv2.route("/graph", methods=["GET", "POST"])
+@onlinetweetsappv9.route("/graph", methods=["GET", "POST"])
 def graph():     
     """GENERATE TWEETS
     """
-    my_list = onlinetweetsappv2.vars["regions_selected"]
+    my_list = onlinetweetsappv9.vars["regions_selected"]
           
     all_tweets = []  # Has to be here, not in app_functions.
        
@@ -88,11 +88,11 @@ def graph():
     script, div = components(plot, CDN)
     g = all_tweets
     
-    pre_choice = onlinetweetsappv2.vars["regions_selected"]
+    pre_choice = onlinetweetsappv9.vars["regions_selected"]
     pr_choice = [str(x) for x in pre_choice]
     choice = " & ".join(str(x) for x in pr_choice)    
     
     return render_template("graph.html", graph=g, choice=choice, script=script, div=div)
 
 if __name__ == "__main__":
-    onlinetweetsappv2.run(debug=True)
+    onlinetweetsappv9.run(port=33507)
