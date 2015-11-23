@@ -1,30 +1,27 @@
 <!doctype html>
+<html lang="en">
 <head>
     <title>Barbora's App</title>
     <link rel="stylesheet" type="text/cs"s href="{{ url_for('static',filename='style.css')}}">
 </head>
-
 <body>
     <div class=page>
     <h1>See the number of times marihuana-related words are being tweeted in a region of your choice</h1>
 
-    <div class=metanav>
-
-        <h4>
-        <form id='answerform' method='post' action='main' >
-        <p>Region:<br/>
-        <input type='radio' name='answer_from_layout' value={{ans1}} /> {{ans1}} <br/>
-        <input type='radio' name='answer_from_layout' value={{ans2}} /> {{ans2}} <br/>
-        </p>
-
-        <p>
-        <input type='submit' value='Submit' />
-        </p>
-        </form>
+        <div class=metanav>
+        <h4>        
+            <form method='post' action='main' >
+                <p>Region:<br/>          
+                    <input type="checkbox" name='region' value={{ans1}}> {{ans1}} <br/>
+                    <input type="checkbox" name='region' value={{ans2}}> {{ans2}} <br/>
+                    <input type="checkbox" name='region' value={{ans3}}> {{ans3}} <br/>
+                </p>
+                <p>
+                    <input type='submit' value='Submit' />
+                </p>
+            </form>        
         </h4>
-
+        </div>
     </div>
-    </div>
-
 </body>
 </html>
