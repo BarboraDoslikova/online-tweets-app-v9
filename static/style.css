@@ -4,7 +4,11 @@ h1, h2          { font-family: 'Georgia', serif; margin: 0; }
 h1              { border-bottom: 2px solid #297C46; }
 h2              { font-size: 1.2em; }
 
+<<<<<<< HEAD
 .page           { margin: 2em auto; width: 45em; border: 5px solid #003E15;
+=======
+.page           { margin: 2em auto; width: 40em; border: 5px solid #003E15;
+>>>>>>> e5d36b1740f8816d928c983a5772b8f47ab44634
                   padding: 0.8em; background: white; }
 .entries        { list-style: none; margin: 0; padding: 0; }
 .entries li     { margin: 0.8em 1.2em; }
@@ -16,4 +20,8 @@ h2              { font-size: 1.2em; }
 .flash          { background: #CEE5F5; padding: 0.5em;
                   border: 1px solid #AACBE2; }
 .error          { background: #F0D6D6; padding: 0.5em; }
+<<<<<<< HEAD
 .graph          { text-align: left}
+=======
+.graph          { text-align: left}
+>>>>>>> e5d36b1740f8816d928c983a5772b8f47ab44634

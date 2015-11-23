@@ -7,3 +7,7 @@ oauthlib==0.7.2
 requests>=2.2.1
 simplejson==3.8.0
 requests_oauthlib>=0.5.0
+<<<<<<< HEAD
+=======
+bokeh>=0.10.0
+>>>>>>> e5d36b1740f8816d928c983a5772b8f47ab44634

@@ -95,4 +95,8 @@ def graph():
     return render_template("graph.html", graph=g, choice=choice, script=script, div=div)
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     onlinetweetsappv9.run(port=33507)
+=======
+    onlinetweetsappv9.run(port=33507)
+>>>>>>> e5d36b1740f8816d928c983a5772b8f47ab44634
