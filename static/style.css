@@ -4,7 +4,7 @@ h1, h2          { font-family: 'Georgia', serif; margin: 0; }
 h1              { border-bottom: 2px solid #297C46; }
 h2              { font-size: 1.2em; }
 
-.page           { margin: 2em auto; width: 35em; border: 5px solid #003E15;
+.page           { margin: 2em auto; width: 45em; border: 5px solid #003E15;
                   padding: 0.8em; background: white; }
 .entries        { list-style: none; margin: 0; padding: 0; }
 .entries li     { margin: 0.8em 1.2em; }
@@ -17,18 +17,3 @@ h2              { font-size: 1.2em; }
                   border: 1px solid #AACBE2; }
 .error          { background: #F0D6D6; padding: 0.5em; }
 .graph          { text-align: left}
-
-/*
-#eee gray
-#fafafa light gray
-#377BA8
-#CEE5F5
-#AACBE2
-#F0D6D6 graay
-
-#FFAAAA 7CBB92
-#D46A6A 4E9C68
-#AA3939 297C46
-#801515 105D2A
-#550000 003E15
-*/
