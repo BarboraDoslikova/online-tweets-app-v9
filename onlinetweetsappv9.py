@@ -52,7 +52,7 @@ def graph():
         """ Generates a desired number of tweets.
         I.e. Runs the tweet generator x-times.
         """ 
-        NUMBER_OF_TWEETS = 10 
+        NUMBER_OF_TWEETS = 3 
         count = NUMBER_OF_TWEETS
         while count > 0:
            generate_1_tweet(my_list)
